@@ -1,8 +1,21 @@
-<div container class = "flex justify-content-center mt-4">
-    <div container class ="mt-4">
-        <app-usuario></app-usuario>
+
+<div container class="justify-content-center m-4">
+    <div class="card" style="width: 100rem;">
+        <div class = "card-header">
+            <h5 class="card-title">Sala de Chat</h5>
+        </div>
+        <div class="card-body text-center">
+            <h5 class="card-title">Conversación</h5>
+        </div>
+        <div container class = "d-inline-flex justify-content-center">
+            <app-usuario class = "m-4" [usuario]="usuario1" (newMessage)="onMessageReceived($event)"></app-usuario>
+            <app-usuario class = "m-4" [usuario]="usuario2" (newMessage)="onMessageReceived($event)"></app-usuario>
+        </div>
+        <div *ngFor="let mensaje of mensajes">
+            <h5>usuario {{ mensaje.usuario }}:</h5>
+            <p>{{ mensaje.mensaje }}</p>
+        </div>
     </div>
-    <div container class ="mt-4">
-        <app-usuario></app-usuario>
-    </div>
+    
 </div>
+

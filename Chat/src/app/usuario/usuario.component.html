@@ -1,13 +1,13 @@
 <div container class="d-flex justify-content-center mt-4">
     <div class="card" style="width: 30rem;">
       <div class = "card-header">
-        <h5 class="card-title">Usuario</h5>
+        <h5 class="card-title">Usuario: {{usuario}}</h5>
       </div>
       <div class="card-body text-center">
         <h4 class="card-title">Mensaje</h4>
         <label for="mensaje">Example textarea</label>
-        <textarea [(ngModel)] ="inputMsg" class="form-control" id="mansaje" rows="3"></textarea>
-        <button class="btn btn-primary w-20 mt-4">Guardar</button>
+        <textarea [(ngModel)] ="inputMsg" class="form-control" id="mensaje" rows="3"></textarea>
+        <button class="btn btn-primary w-20 mt-4" (click)="sendMsg()">Guardar</button>
      </div>
     </div>
 </div>

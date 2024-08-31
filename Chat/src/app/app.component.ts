@@ -13,3 +13,8 @@ import { SalaComponent } from './sala/sala.component';
 export class AppComponent {
   title = 'Chat';
 }
+
+export interface ChatMessage {
+  usuario: string;
+  mensaje: string;
+}

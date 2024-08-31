@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { AppComponent, ChatMessage } from '../app.component';
 
 @Component({
   selector: 'app-usuario',
@@ -10,10 +11,14 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './usuario.component.css'
 })
 export class UsuarioComponent {
-  @Output() inputMade = new EventEmitter<string>;
+  @Input() usuario: string = "";
+  @Output() newMessage = new EventEmitter<ChatMessage>;
   inputMsg: string = ""; 
+  mensaje: ChatMessage | undefined;
 
-  makeInput(){
-    this.inputMade.emit(this.inputMsg);
+  sendMsg(){  
+    this.mensaje = { usuario: this.usuario, mensaje: this.inputMsg };
+    this.newMessage.emit(this.mensaje);
+    this.inputMsg = "";
   }
 }
